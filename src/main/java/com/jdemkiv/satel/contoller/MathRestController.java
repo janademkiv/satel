@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.*;
 public class MathRestController {
     MathService mathService;
 
-    @PostMapping(value = "/sum", produces = "application/json")
+    @PostMapping("/sum")
     public int sum(@RequestBody NumberDto numberDto) {
         return mathService.sum(numberDto);
     }
 
-    @PostMapping(value = "/diff", produces = "application/json")
-    public int diff(@RequestParam int a, @RequestParam int b) {
-        return a - b;
+    @PostMapping("/diff")
+    public int diff(@RequestBody NumberDto numberDto) {
+        return mathService.diff(numberDto);
     }
 
 }
